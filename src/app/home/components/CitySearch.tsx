@@ -27,7 +27,7 @@ function CitySearch() {
           value={input}
           onChange={event => setInput(event.target.value)}
         />
-        <div className="m-auto h-0.5 w-0 bg-slate-900 transition-[width] delay-75 duration-300 ease-in-out group-focus-within:w-full group-focus-within:transition-all group-hover:w-full group-hover:transition-all"></div>
+        <div className="m-auto h-px w-0 bg-slate-900 transition-[width] delay-75 duration-300 ease-in-out group-focus-within:w-full group-focus-within:transition-all group-hover:w-full group-hover:transition-all"></div>
       </div>
       <button
         className="mb-0.5 rounded-xl px-4 py-2 text-slate-900 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 active:bg-slate-100"
