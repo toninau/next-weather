@@ -72,6 +72,7 @@ const weatherSchema = z.object({
   }),
   timezone: z.number(), // Shift in seconds from UTC
   name: z.string(),
+  id: z.number(),
 });
 
 export type Weather = z.infer<typeof weatherSchema>;

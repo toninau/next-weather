@@ -1,33 +1,28 @@
+'use client';
 import Link from 'next/link';
 
+import { useWeatherHistoryState } from '@/providers/WeatherHistoryProvider';
+
 function SearchHistory() {
+  const weatherHistory = useWeatherHistoryState();
+
   return (
     <article>
       <h2>Previous searches</h2>
-      <article>
-        <Link href={`/weather/helsinki`} prefetch={false}>
-          <h3>Helsinki</h3>
-        </Link>
-        <p>23C</p>
-        <p>Sunny</p>
-        <footer>
-          <p>
-            Data from: <time>May 18</time>
-          </p>
-        </footer>
-      </article>
-      <article>
-        <Link href={`/weather/stockholm`} prefetch={false}>
-          <h3>Stockholm</h3>
-        </Link>
-        <p>23C</p>
-        <p>Rain</p>
-        <footer>
-          <p>
-            Data from: <time>May 18</time>
-          </p>
-        </footer>
-      </article>
+      {weatherHistory.map(weather => (
+        <article key={weather.id}>
+          <Link href={`/weather/${weather.name.toLowerCase()}`} prefetch={false}>
+            <h3>{weather.name}</h3>
+          </Link>
+          <p>{weather.temperature}</p>
+          <p>Sunny</p>
+          <footer>
+            <p>
+              Data from: <time>May 18</time>
+            </p>
+          </footer>
+        </article>
+      ))}
     </article>
   );
 }

@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
 import CurrentWeather from './components/CurrentWeather';
+import WeatherHistory from './components/WeatherHistory';
+
 import { findLocations, getCurrentWeather } from './utils';
 
 type PageParams = { location: string };
@@ -38,6 +41,10 @@ export default async function Page({ params }: PageProps) {
       <h1 className="mt-1 text-lg font-semibold text-slate-900 dark:sm:text-white md:text-2xl">
         Weather in {locations[0].name}
       </h1>
+      <Link href="/home" className="text-red-600">
+        Home
+      </Link>
+      <WeatherHistory weather={currentWeather} />
       <CurrentWeather weather={currentWeather} />
     </main>
   );
